@@ -37,7 +37,7 @@ def splits(res: {}, split: int):
         'split': split,
         'greater': greater,
         'less': less,
-        'even': 0 if res[split] is None else res[split],
+        'even': 0 if res.get(split) is None else res[split],
     }
 
 
