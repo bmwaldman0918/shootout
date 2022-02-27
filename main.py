@@ -37,21 +37,23 @@ def splits(res: {}, split: int):
         'split': split,
         'greater': greater,
         'less': less,
-        'even': res[split],
+        'even': 0 if res[split] is None else res[split],
     }
 
-def print_splits(splits: {}):
-    length = splits['less'] + splits['greater'] + splits['even']
-    print(str(splits['less'] / length * 100) + "% of shootouts were of a length less than "
-          + str(splits['split']) + ".")
-    print(str(splits['even'] / length * 100) + "% of shootouts were of length "
-          + str(splits['split']) + ".")
-    print(str(splits['greater'] / length * 100) + "% of shootouts were of a length greater than "
-          + str(splits['split']) + ".")
+
+def print_splits(s: {}):
+    length = s['less'] + s['greater'] + s['even']
+    print(str(s['less'] / length * 100) + "% of shootouts were of a length less than "
+          + str(s['split']) + ".")
+    print(str(s['even'] / length * 100) + "% of shootouts were of length "
+          + str(s['split']) + ".")
+    print(str(s['greater'] / length * 100) + "% of shootouts were of a length greater than "
+          + str(s['split']) + ".")
+
 
 times = 100000
 hockey_results = test_sport(hockey, times)
-soccer_results= test_sport(soccer, times)
+soccer_results = test_sport(soccer, times)
 
 print("---Soccer---")
 print_splits(splits(hockey_results, 11))
