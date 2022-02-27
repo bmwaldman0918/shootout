@@ -56,6 +56,6 @@ hockey_results = test_sport(hockey, times)
 soccer_results = test_sport(soccer, times)
 
 print("---Soccer---")
-print_splits(splits(hockey_results, 11))
+print_splits(splits(soccer_results, 11))
 print("---Ice Hockey (NHL Rules)---")
 print_splits(splits(hockey_results, 18))
